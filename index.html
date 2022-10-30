@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Upload Image</title>
+  <style media="screen">
+    * {
+      margin: 0;
+      padding: 0;
+      outline: 0;
+    }
+
+    .previewImageContainer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+    }
+
+    .formInput form input {
+      display: none;
+    }
+
+    .formInput form label {
+      color: white;
+      background: purple;
+      padding: 13px 20px;
+      border-radius: 5px;
+      font-family: sans-serif;
+      cursor: pointer;
+      border: 2px solid purple;
+      transition: .3s;
+    }
+
+    .formInput form label:hover {
+      color: purple;
+      background: transparent;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="previewImageContainer">
+    <div class="formInput">
+      <form action="">
+        <label for="imgFile">Upload Image</label>
+        <input type="file" id="imgFile">
+      </form>
+    </div>
+    <div class="imgContainer">
+      <img src="" alt="">
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    const fileInput = document.getElementById('imgFile');
+    fileInput.addEventListener('change', (e) => {
+      const imgUrl = URL.createObjectURL(e.target.files[0]);
+      const previewImg = document.querySelector(".imgContainer img");
+      previewImg.style.width = "200px";
+      previewImg.style.marginTop = "50px";
+      previewImg.src = imgUrl;
+    });
+  </script>
+</body>
+
+</html>
